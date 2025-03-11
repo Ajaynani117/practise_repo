@@ -124,51 +124,7 @@
 
 
 
-def add(x,y):
-    return x+y
 
-def sub(x,y):
-    return(x-y)
-
-def mul(x,y):
-    return(x*y)
-
-def div(x,y):
-    return(x/y)
-
-print("Enter your choice, 1/2/3/4 :")
-
-print("1.Add")
-print("2.Sub")
-print("3.Mul")
-print("4.Div")
-
-while True:
-    choice_input = input("Enter your  choice 1/2/3/4:")
-    if choice_input in ('1','2','3','4'):
-            try:
-                num1 = float(input("Enter the First number :"))
-                num2 = float(input("Enter the Second number :"))
-            except ValueError:
-                print("invalid input,Please Enter the number")
-                continue
-     
-            if choice_input == '1':
-                 print(num1,'+',num2,'=',add(num1,num2))
-            elif choice_input == '2':
-                 print(num1,'-',num2,'=',sub(num1,num2))
-            elif choice_input == '3':
-                 print(num1,'*',num2,'=',mul(num1,num2))
-            elif choice_input == '4':
-                 print(num1,'/',num2,'=',div(num1,num2))
-
-            Nextcalucation = input("Enter the next Calucation,(yes/no):")
-            if Nextcalucation == 'no':
-                break
-    else:
-        print("Invalid input")
-
-                 
 
 
 

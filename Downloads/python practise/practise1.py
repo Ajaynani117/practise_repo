@@ -818,38 +818,38 @@
 
     
 
-# if __name__ == '__main__':
-#     x = int(input())
-#     y = int(input())
-#     z = int(input())
-#     n = int(input())
-
-# print(list([i,j,k] for i in range(x+1) for j in range(y+1) for k in range(z+1)  if i+j+k !=n))
-
-
-
-
-
 if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
     n = int(input())
-    list1 = []
-    list2 = []        
 
-    for i in range(0,n):
-        name = input()
-        score = float(input())
-        list1.append([name,score])
-        list2.append(score)
-list1.sort()
-list2.sort()
-m = min(list2)
-list2.remove(m)
-m2 = min(list2)
+print(list([i,j,k] for i in range(x+1) for j in range(y+1) for k in range(z+1)  if i+j+k !=n))
 
-for i in range(len(list1)):
-    for j in range(len(list1[i])):
-        if list1[i][j] == m2:
-            print(list1[i][0])
+
+
+
+
+# if __name__ == '__main__':
+#     n = int(input())
+#     list1 = []
+#     list2 = []        
+
+#     for i in range(0,n):
+#         name = input()
+#         score = float(input())
+#         list1.append([name,score])
+#         list2.append(score)
+# list1.sort()
+# list2.sort()
+# m = min(list2)
+# list2.remove(m)
+# m2 = min(list2)
+
+# for i in range(len(list1)):
+#     for j in range(len(list1[i])):
+#         if list1[i][j] == m2:
+#             print(list1[i][0])
 
 
 
