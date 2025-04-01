@@ -1,38 +1,35 @@
 pipeline {
     agent any
 
-    parameters{
-        string(name: 'ENV', defaultValue: 'DEV', description: 'Environment to deploy')
-        booleanParam(name: 'DEPLOY', defaultValue: true, description: 'Deploy the code')
-        choice(name: 'CHOICE', choices: ['DEV', 'QA', 'PROD'], description: 'Choose the environment')
+    tools {
+        jdk 'java-8-openjdk'
+        maven 'maven-3.6.3'
     }
 
+    environment{
+        javaHome = '/usr/lib/jvm/java-8-openjdk-amd64'
+        mvnHome = '/opt/apache-maven-3.6.3'
+        dockerHome = '/usr/bin/docker'
+    }
+   
+
     stages {
-        stage('Build') {
-            when {
-                expression {
-                    return params.DEPLOY == true
-                }
-            }
+        stage('Build')  {
             steps {
                 echo 'Build the code'
+                sh 'mvn package'
             }
         }    
         stage('Test') {
             steps {
-                echo "Run the Test cases ${params.choices}"
+                echo 'Run the Test cases '
+                sh 'mvn test'
             }
         }
         stage('Package') {
-            input {
-                message "Do you want to package the code?"
-                ok "Yes"
-                parameters {
-                    string(name: 'ENV', defaultValue: 'DEV', description: 'Environment to deploy')
-                }
-            }
             steps {
-                echo "Package the code env: ${params.ENV}"
+                echo 'Package the code'
+                sh 'mvn package'
             }
         }
     }
