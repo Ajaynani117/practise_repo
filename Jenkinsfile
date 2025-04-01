@@ -7,9 +7,6 @@ pipeline {
     }   
     stages {
         stage('Build')  {
-            agent {
-                label 'linuxslave'
-            }
             steps {
                 echo 'Build the code'
                 sh 'mvn compile'
