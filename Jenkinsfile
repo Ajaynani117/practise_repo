@@ -24,6 +24,13 @@ pipeline {
             }
         }
         stage('Package') {
+            input {
+                message "Do you want to package the code?"
+                ok "Yes"
+                parameters {
+                    string(name: 'ENV', defaultValue: 'DEV', description: 'Environment to deploy')
+                }
+            }
             steps {
                 echo "Package the code env: ${params.ENV}"
             }
