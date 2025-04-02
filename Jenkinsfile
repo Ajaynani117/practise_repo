@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Build')  {
             steps {
-                echo 'Build the code of the project'
+                echo "Build the code of the project ${params.APPVERSION}"
                 
             }
         }    
@@ -26,6 +26,15 @@ pipeline {
         stage('Package') {
             steps {
                 echo 'Package the code'
+                
+            }
+        stage('Deploy') {
+            input {
+                message "Provide the approval for prod"
+                ok "Yes"
+            }
+            steps {
+                echo 'Deploy the code to '
                 
             }
         }
