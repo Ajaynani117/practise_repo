@@ -5,6 +5,11 @@ pipeline {
         jdk 'myjava'
         maven 'mymaven'
     }   
+    parameters {
+        string(name: 'ENV', defaultValue: 'Test', description: 'ENV to deploy')
+        booleanParam(name: 'executeTests', defaultValue: true, description: 'decide to run the tests or not')
+        choice(name: 'APPVERSION', choices: ['1.1', '1.2','1.3'], description: 'Choose the version')
+    }
     stages {
         stage('Build')  {
             steps {
