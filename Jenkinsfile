@@ -28,6 +28,7 @@ pipeline {
                 echo 'Package the code'
                 
             }
+        }    
         stage('Deploy') {
             input {
                 message "Provide the approval for prod"
@@ -39,5 +40,5 @@ pipeline {
             }
         }
     }
-    }
 }
+
