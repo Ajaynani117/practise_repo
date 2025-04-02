@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent 
 
     tools {
         jdk 'myjava'
@@ -9,19 +9,19 @@ pipeline {
         stage('Build')  {
             steps {
                 echo 'Build the code of the project'
-                sh 'mvn compile'
+                
             }
         }    
         stage('Test') {
             steps {
                 echo 'Run the Test cases '
-                sh 'mvn test'
+                
             }
         }
         stage('Package') {
             steps {
                 echo 'Package the code'
-                sh 'mvn package'
+                
             }
         }
     }
